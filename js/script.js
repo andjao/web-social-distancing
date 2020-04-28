@@ -40,24 +40,24 @@ function calcular() {
 }
 
 function neighbors(people, posX, posY, show) {
-    const top = posY !== 1;
-    const left = posX !== 1;
-    const right = posX !== peoplesX;
-    const bottom = posY !== peoplesY;
-    const topLeft = top && left;
-    const topRight = top && right;
-    const bottomLeft = bottom && left;
-    const bottomRight = bottom && right;
+    const n = posY !== 1;
+    const w = posX !== 1;
+    const e = posX !== peoplesX;
+    const s = posY !== peoplesY;
+    const nw = n && w;
+    const ne = n && e;
+    const sw = s && w;
+    const se = s && e;
 
-    if (topLeft) show ? addClass(`p${people - peoplesX - 1}`, 'collateralC') : removeClass(`p${people - peoplesX - 1}`, 'collateralC');
-    if (top) show ? addClass(`p${people - peoplesX}`, 'cardinalC') : removeClass(`p${people - peoplesX}`, 'cardinalC');
-    if (topRight) show ? addClass(`p${people - peoplesX + 1}`, 'collateralC') : removeClass(`p${people - peoplesX + 1}`, 'collateralC');
-    if (left) show ? addClass(`p${people - 1}`, 'cardinalC') : removeClass(`p${people - 1}`, 'cardinalC');
+    if (nw) show ? addClass(`p${people - peoplesX - 1}`, 'collateralC') : removeClass(`p${people - peoplesX - 1}`, 'collateralC');
+    if (n) show ? addClass(`p${people - peoplesX}`, 'cardinalC') : removeClass(`p${people - peoplesX}`, 'cardinalC');
+    if (ne) show ? addClass(`p${people - peoplesX + 1}`, 'collateralC') : removeClass(`p${people - peoplesX + 1}`, 'collateralC');
+    if (w) show ? addClass(`p${people - 1}`, 'cardinalC') : removeClass(`p${people - 1}`, 'cardinalC');
     show ? addClass(`p${people}`, 'peopleC') : removeClass(`p${people}`, 'peopleC');
-    if (right) show ? addClass(`p${people + 1}`, 'cardinalC') : removeClass(`p${people + 1}`, 'cardinalC');
-    if (bottomLeft) show ? addClass(`p${people + peoplesX - 1}`, 'collateralC') : removeClass(`p${people + peoplesX - 1}`, 'collateralC');
-    if (bottom) show ? addClass(`p${people + peoplesX}`, 'cardinalC') : removeClass(`p${people + peoplesX}`, 'cardinalC');
-    if (bottomRight) show ? addClass(`p${people + peoplesX + 1}`, 'collateralC') : removeClass(`p${people + peoplesX + 1}`, 'collateralC');
+    if (e) show ? addClass(`p${people + 1}`, 'cardinalC') : removeClass(`p${people + 1}`, 'cardinalC');
+    if (sw) show ? addClass(`p${people + peoplesX - 1}`, 'collateralC') : removeClass(`p${people + peoplesX - 1}`, 'collateralC');
+    if (s) show ? addClass(`p${people + peoplesX}`, 'cardinalC') : removeClass(`p${people + peoplesX}`, 'cardinalC');
+    if (se) show ? addClass(`p${people + peoplesX + 1}`, 'collateralC') : removeClass(`p${people + peoplesX + 1}`, 'collateralC');
 }
 
 function addClass(people, classC) {

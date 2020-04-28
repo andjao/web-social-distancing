@@ -37,6 +37,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 100%;
+    cursor: pointer;
 }
 
 .peopleC {
@@ -52,4 +53,16 @@
 .collateralC {
     border: 1vw solid;
     border-color: #f88;
+}
+
+.peopleFC {
+    color: #00f;
+}
+
+.cardinalFC {
+    color: #f00;
+}
+
+.collateralFC {
+    color: #f88;
 }

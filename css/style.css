@@ -1,0 +1,27 @@
+.drawing {
+    width: 50vw;
+    height: 50vw;
+    border: 1px solid #000;
+    background-color: #0f0;
+    display: flex;
+    align-items: center;
+    align-self: center;
+}
+
+.people {
+    float: left;
+    max-width: 3vw;
+    max-height: 3vw;
+    margin: 0;
+    border: 0.1vw solid #00f;
+    border-radius: 100%;
+    padding: 0;
+    background-color: #fff;
+    font-size: 3vw;
+    text-align: center;
+}
+
+.detachment {
+    max-width: 3vw;
+    max-height: 3vw;
+}

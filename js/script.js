@@ -50,7 +50,7 @@ function neighbors(people, posX, posY, show, print) {
     const sw = s && w;
     const se = s && e;
     let title = [
-        `A pessoa n° ${people} está na posição: ${posX}-${posY}.`,
+        `A pessoa n° ${people} está na posição: ${posY}-${posX}.`,
         `Está ${detachment}m de distância das pessoas de n° `,
         `Está ${Math.hypot(detachment, detachment).toFixed(2)}m de distância das pessoas de n° `
     ];

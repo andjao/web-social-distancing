@@ -14,12 +14,16 @@ setTimeout(function () {
 function calcular() {
     let cont = 0;
     document.getElementById(`people`).innerHTML = ``;
-    detachment = document.getElementById(`detachment`).value;
-    x = document.getElementById(`width`).value;
-    y = document.getElementById(`length`).value;
-    meters2 = x * y;
-    peoplesX = Math.ceil(x / detachment);
-    peoplesY = Math.ceil(y / detachment);
+    detachment = document.getElementById(`detachment`);
+    x = document.getElementById(`width`);
+    y = document.getElementById(`length`);
+    if (detachment.value === `` || x.value === `` || y.value === ``) {
+        toast(`alert`, `Por favor, preencha o campos!`, 'red');
+        return;
+    }
+    meters2 = x.value * y.value;
+    peoplesX = Math.ceil(x.value / detachment.value);
+    peoplesY = Math.ceil(y.value / detachment.value);
     peoples = peoplesX * peoplesY;
     let drawing = `<div class='grid'>`;
     for (let y = 1; y <= peoplesY; y++) {
@@ -34,7 +38,7 @@ function calcular() {
     }
     drawing += `</div>`;
     let print = drawing;
-    print += `<br><p>Distanciamento Social: ${detachment}</p>`;
+    print += `<br><p>Distanciamento Social: ${detachment.value}</p>`;
     print += `<p>Metros quadrados do estabelecimento: ${meters2}</p>`;
     print += `<p>Quantidade de pessoas permitidas no estabelecimento: ${peoples}</p>`;
     document.getElementById(`result`).innerHTML = print;
@@ -51,60 +55,60 @@ function neighbors(people, posX, posY, show, print) {
     const se = s && e;
     let title = [
         `A pessoa n° ${people} está na posição: ${posY}-${posX}.`,
-        `Está ${detachment}m de distância das pessoas de n° `,
-        `Está ${Math.hypot(detachment, detachment).toFixed(2)}m de distância das pessoas de n° `
+        `Está ${detachment.value}m de distância das pessoas de n° `,
+        `Está ${Math.hypot(detachment.value, detachment.value).toFixed(2)}m de distância das pessoas de n° `
     ];
     title[3] = '';
     title[4] = '';
 
     if (nw && show) {
-        addClass(`p${people - peoplesX - 1}`, `collateralC`);
+        addClass(`p${people - peoplesX - 1}`, `collateralBC`);
         title[4] += `${people - peoplesX - 1}, `;
     } else if (document.getElementById(`p${people - peoplesX - 1}`)) {
-        removeClass(`p${people - peoplesX - 1}`, `collateralC`);
+        removeClass(`p${people - peoplesX - 1}`, `collateralBC`);
     }
     if (n && show) {
-        addClass(`p${people - peoplesX}`, `cardinalC`);
+        addClass(`p${people - peoplesX}`, `cardinalBC`);
         title[3] += `${people - peoplesX}, `;
     } else if (document.getElementById(`p${people - peoplesX}`)) {
-        removeClass(`p${people - peoplesX}`, `cardinalC`);
+        removeClass(`p${people - peoplesX}`, `cardinalBC`);
     }
     if (ne && show) {
-        addClass(`p${people - peoplesX + 1}`, `collateralC`);
+        addClass(`p${people - peoplesX + 1}`, `collateralBC`);
         title[4] += `${people - peoplesX + 1}, `;
     } else if (document.getElementById(`p${people - peoplesX + 1}`)) {
-        removeClass(`p${people - peoplesX + 1}`, `collateralC`);
+        removeClass(`p${people - peoplesX + 1}`, `collateralBC`);
     }
     if (w && show) {
-        addClass(`p${people - 1}`, `cardinalC`);
+        addClass(`p${people - 1}`, `cardinalBC`);
         title[3] += `${people - 1}, `;
     } else if (document.getElementById(`p${people - 1}`)) {
-        removeClass(`p${people - 1}`, `cardinalC`);
+        removeClass(`p${people - 1}`, `cardinalBC`);
     }
-    show ? addClass(`p${people}`, `peopleC`) : removeClass(`p${people}`, `peopleC`);
+    show ? addClass(`p${people}`, `peopleBC`) : removeClass(`p${people}`, `peopleBC`);
     if (e && show) {
-        addClass(`p${people + 1}`, `cardinalC`);
+        addClass(`p${people + 1}`, `cardinalBC`);
         title[3] += `${people + 1}, `;
     } else if (document.getElementById(`p${people + 1}`)) {
-        removeClass(`p${people + 1}`, `cardinalC`);
+        removeClass(`p${people + 1}`, `cardinalBC`);
     }
     if (sw && show) {
-        addClass(`p${people + peoplesX - 1}`, `collateralC`);
+        addClass(`p${people + peoplesX - 1}`, `collateralBC`);
         title[4] += `${people + peoplesX - 1}, `;
     } else if (document.getElementById(`p${people + peoplesX - 1}`)) {
-        removeClass(`p${people + peoplesX - 1}`, `collateralC`);
+        removeClass(`p${people + peoplesX - 1}`, `collateralBC`);
     }
     if (s && show) {
-        addClass(`p${people + peoplesX}`, `cardinalC`);
+        addClass(`p${people + peoplesX}`, `cardinalBC`);
         title[3] += `${people + peoplesX}, `;
     } else if (document.getElementById(`p${people + peoplesX}`)) {
-        removeClass(`p${people + peoplesX}`, `cardinalC`);
+        removeClass(`p${people + peoplesX}`, `cardinalBC`);
     }
     if (se && show) {
-        addClass(`p${people + peoplesX + 1}`, `collateralC`);
+        addClass(`p${people + peoplesX + 1}`, `collateralBC`);
         title[4] += `${people + peoplesX + 1}, `;
     } else if (document.getElementById(`p${people + peoplesX + 1}`)) {
-        removeClass(`p${people + peoplesX + 1}`, `collateralC`);
+        removeClass(`p${people + peoplesX + 1}`, `collateralBC`);
     }
 
     title[3] = title[3].substr(0, title[3].lastIndexOf(`, `));

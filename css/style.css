@@ -40,17 +40,17 @@
     cursor: pointer;
 }
 
-.peopleC {
+.peopleBC {
     border: 1vw solid;
     border-color: #00f;
 }
 
-.cardinalC {
+.cardinalBC {
     border: 1vw solid;
     border-color: #f00;
 }
 
-.collateralC {
+.collateralBC {
     border: 1vw solid;
     border-color: #f88;
 }
